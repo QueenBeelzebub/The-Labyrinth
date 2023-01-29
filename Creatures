@@ -1,0 +1,27 @@
+from items import *
+from attacks import *
+
+class Creature:
+    def __init__(self, max_health, attacks, loot_exp, loot_coins, items) -> None:
+        """
+        :param max_health: This contains the maximum health of the creature, they cannot recover more health than they start with.
+        :param attacks: This contains a list with references to each possible attack they can do
+        :param loot_exp: The exp points dropped upon death
+        :param loot_coins: The coins dropped upon death
+        :param items: List of items the creature can use
+        """
+        self.max_health = max_health
+        self.attacks = attacks
+        self.loot_exp = loot_exp
+        self.loot_coins = loot_coins
+        self.items = items
+
+    def set_health(self, health):
+        self.health = health
+        if self.health > self.max_health:
+            self.health = self.max_health
+    
+
+        pass
+
+goblin = Creature(10, [punch, bite], 10, 5, [])
